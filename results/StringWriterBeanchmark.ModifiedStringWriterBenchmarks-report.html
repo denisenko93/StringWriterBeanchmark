@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>StringWriterBeanchmark.ModifiedStringWriterBenchmarks-20220417-120732</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1645 (21H2)
+Intel Core i5-7300HQ CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=7.0.100-preview.3.22179.4
+  [Host]     : .NET 7.0.0 (7.0.22.17504), X64 RyuJIT
+  DefaultJob : .NET 7.0.0 (7.0.22.17504), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                                Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StringWriterWriteStringInterpolation</td><td>38.124 ns</td><td>0.8304 ns</td><td>0.8528 ns</td><td>0.0178</td><td>56 B</td>
+</tr><tr><td>StringWriterWriteString</td><td>9.947 ns</td><td>0.0824 ns</td><td>0.0688 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteSpan</td><td>10.425 ns</td><td>0.0901 ns</td><td>0.0799 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteStringBuilder</td><td>18.198 ns</td><td>0.1215 ns</td><td>0.1136 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteBool</td><td>10.651 ns</td><td>0.0472 ns</td><td>0.0394 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteByte</td><td>12.040 ns</td><td>0.3147 ns</td><td>0.2790 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteInt</td><td>20.754 ns</td><td>0.1533 ns</td><td>0.1280 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLong</td><td>47.405 ns</td><td>0.3707 ns</td><td>0.3286 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteUInt</td><td>23.550 ns</td><td>0.5272 ns</td><td>0.7217 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteULong</td><td>39.761 ns</td><td>0.1112 ns</td><td>0.1040 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteChar</td><td>6.749 ns</td><td>0.1918 ns</td><td>0.1794 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteCharArray</td><td>12.461 ns</td><td>0.2994 ns</td><td>0.2501 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteCharArrayChunk</td><td>12.130 ns</td><td>0.3039 ns</td><td>0.4056 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteDecimal</td><td>117.122 ns</td><td>2.4169 ns</td><td>4.3581 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteDouble</td><td>193.187 ns</td><td>3.7176 ns</td><td>3.6512 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteFloat</td><td>156.453 ns</td><td>3.1696 ns</td><td>6.1068 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteObject</td><td>65.341 ns</td><td>1.0348 ns</td><td>0.8641 ns</td><td>0.0408</td><td>128 B</td>
+</tr><tr><td>StringWriterWriteFormat1</td><td>58.284 ns</td><td>1.2231 ns</td><td>2.8591 ns</td><td>0.0102</td><td>32 B</td>
+</tr><tr><td>StringWriterWriteFormat2</td><td>158.928 ns</td><td>2.9878 ns</td><td>2.6486 ns</td><td>0.0176</td><td>56 B</td>
+</tr><tr><td>StringWriterWriteFormat3</td><td>312.774 ns</td><td>3.0781 ns</td><td>2.5704 ns</td><td>0.0277</td><td>88 B</td>
+</tr><tr><td>StringWriterWriteFormat4</td><td>607.754 ns</td><td>3.7974 ns</td><td>3.5521 ns</td><td>0.0534</td><td>168 B</td>
+</tr><tr><td>StringWriterWriteLineStringInterpolation</td><td>40.241 ns</td><td>0.4884 ns</td><td>0.4329 ns</td><td>0.0178</td><td>56 B</td>
+</tr><tr><td>StringWriterWriteLineString</td><td>14.759 ns</td><td>0.3236 ns</td><td>0.3027 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineSpan</td><td>17.359 ns</td><td>0.4228 ns</td><td>0.7731 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineStringBuilder</td><td>26.404 ns</td><td>0.5801 ns</td><td>0.9850 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineBool</td><td>18.796 ns</td><td>0.4389 ns</td><td>0.4105 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineByte</td><td>22.986 ns</td><td>0.4867 ns</td><td>0.6329 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineInt</td><td>31.501 ns</td><td>0.4972 ns</td><td>0.4152 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineLong</td><td>65.247 ns</td><td>0.5804 ns</td><td>0.4846 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineUInt</td><td>33.774 ns</td><td>0.3990 ns</td><td>0.3537 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineULong</td><td>53.151 ns</td><td>1.0591 ns</td><td>0.9907 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineChar</td><td>15.487 ns</td><td>0.2697 ns</td><td>0.2252 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineCharArray</td><td>23.183 ns</td><td>0.5076 ns</td><td>0.5213 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineCharArrayChunk</td><td>21.177 ns</td><td>0.2027 ns</td><td>0.1693 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineDecimal</td><td>123.636 ns</td><td>1.1039 ns</td><td>0.9218 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineDouble</td><td>221.346 ns</td><td>4.3684 ns</td><td>5.2003 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineFloat</td><td>176.999 ns</td><td>1.1321 ns</td><td>1.0036 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineObject</td><td>80.296 ns</td><td>0.9897 ns</td><td>0.8774 ns</td><td>0.0408</td><td>128 B</td>
+</tr><tr><td>StringWriterWriteLineFormat1</td><td>74.787 ns</td><td>1.5258 ns</td><td>1.6959 ns</td><td>0.0101</td><td>32 B</td>
+</tr><tr><td>StringWriterWriteLineFormat2</td><td>163.317 ns</td><td>1.1898 ns</td><td>0.9936 ns</td><td>0.0176</td><td>56 B</td>
+</tr><tr><td>StringWriterWriteLineFormat3</td><td>330.836 ns</td><td>3.9549 ns</td><td>3.3025 ns</td><td>0.0277</td><td>88 B</td>
+</tr><tr><td>StringWriterWriteLineFormat4</td><td>638.085 ns</td><td>11.5955 ns</td><td>11.9077 ns</td><td>0.0534</td><td>168 B</td>
+</tr><tr><td>StringWriterWriteReadOnlyMemoryAsync</td><td>17.508 ns</td><td>0.2187 ns</td><td>0.2045 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteStringBuilderAsync</td><td>19.682 ns</td><td>0.1580 ns</td><td>0.1401 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteCharAsync</td><td>8.878 ns</td><td>0.2142 ns</td><td>0.3862 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteCharArrayAsync</td><td>14.094 ns</td><td>0.2766 ns</td><td>0.2452 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteCharArrayChunkAsync</td><td>12.478 ns</td><td>0.0495 ns</td><td>0.0413 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteStringAsync</td><td>11.353 ns</td><td>0.1005 ns</td><td>0.0891 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteInterpolatedStringAsync</td><td>38.526 ns</td><td>0.7624 ns</td><td>1.6248 ns</td><td>0.0178</td><td>56 B</td>
+</tr><tr><td>StringWriterWriteLineReadOnlyMemoryAsync</td><td>22.911 ns</td><td>0.3824 ns</td><td>0.3577 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineStringBuilderAsync</td><td>28.699 ns</td><td>0.5388 ns</td><td>0.5292 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineCharAsync</td><td>17.858 ns</td><td>0.3917 ns</td><td>0.5094 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineCharArrayAsync</td><td>22.420 ns</td><td>0.2846 ns</td><td>0.2662 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineCharArrayChunkAsync</td><td>22.025 ns</td><td>0.4637 ns</td><td>0.5155 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineStringAsync</td><td>18.136 ns</td><td>0.3880 ns</td><td>0.4619 ns</td><td>-</td><td>-</td>
+</tr><tr><td>StringWriterWriteLineInterpolatedStringAsync</td><td>38.866 ns</td><td>0.2962 ns</td><td>0.2625 ns</td><td>0.0178</td><td>56 B</td>
+</tr></tbody></table>
+</body>
+</html>
