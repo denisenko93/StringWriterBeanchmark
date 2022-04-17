@@ -1,5 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
 using StringWriterBeanchmark;
 
-//BenchmarkRunner.Run(typeof(Program).Assembly);
-BenchmarkRunner.Run<ModifiedStringWriterBenchmarks>();
+BenchmarkRunner.Run(typeof(Program).Assembly);
